@@ -77,9 +77,9 @@ export default function Header() {
               e.preventDefault();
               handleNavClick('#hero');
             }}
-            className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-white font-bold text-sm hover:bg-gray-800 transition-colors"
+            className="w-10 h-10 rounded-full overflow-hidden bg-gray-900 flex items-center justify-center hover:bg-gray-800 transition-colors"
           >
-            MA
+            <img src="/logo.jpg" alt="Logo" className="w-full h-full object-cover" />
           </a>
         </div>
       </div>

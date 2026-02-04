@@ -4,13 +4,13 @@ const stats = [
   {
     icon: TrendingUp,
     value: '70%',
-    label: 'نمو المتابعين %',
+    label: 'نمو العلامات التجارية',
     color: 'bg-blue-50 text-blue-600',
   },
   {
     icon: Target,
-    value: '40%',
-    label: 'تحسين كفاءة الحملات %',
+    value: '80%',
+    label: 'نجاح الحملات الاعلانية',
     color: 'bg-purple-50 text-purple-600',
   },
   {

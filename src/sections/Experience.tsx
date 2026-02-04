@@ -2,7 +2,7 @@ import { Briefcase, MapPin, Calendar } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Digital Marketing & Growth Lead',
+    title: 'Digital Marketing & Creative Director',
     company: 'مجموعة إمدادات العطاء',
     status: 'حاليا',
     date: 'يناير 2024 — حتى الآن',
@@ -12,7 +12,8 @@ const experiences = [
       'الإشراف على إطلاق الحملات لتطبيقات الجوال (Golden Ultra, BATAL)',
       'إدارة ميزانيات الإعلانات عبر: Meta, TikTok, Google, Snapchat',
       'بناء أنظمة داخلية لربط Creative Performance مع KPIs',
-      'إدارة وتوجيه فرق متعددة (محتوى، تصميم، موشن، إعلانات)',
+      'إدارة وتوجيه فرق متعددة (محتوى، تصميم، تصوير وانتاج المحتوى الاعلاني والسوشيال ميديا، إعلانات)',
+      'الإشراف على جودة ظهور العلامة التجارية بشكل احترافي من مواقع إلكترونية ومطبوعات وهوية كاملة للشركة',
     ],
   },
   {

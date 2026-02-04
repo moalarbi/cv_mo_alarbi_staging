@@ -30,7 +30,7 @@ export default function Hero() {
 
         {/* Title */}
         <p className="text-xl sm:text-2xl text-center text-gray-600 mb-4">
-          Digital Marketing Manager
+          Digital Marketing & Creative Director
         </p>
 
         {/* Subtitle */}

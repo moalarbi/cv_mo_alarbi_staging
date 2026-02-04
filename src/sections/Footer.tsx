@@ -1,4 +1,19 @@
-import { Phone, Mail, Linkedin, Heart } from 'lucide-react';
+import { Phone, Mail, Linkedin, Heart, Instagram } from 'lucide-react';
+
+// Custom TikTok icon since lucide-react might not have it in this version
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 const footerLinks = [
   { href: '#hero', label: 'الرئيسية' },
@@ -12,6 +27,8 @@ const socialLinks = [
   { icon: Phone, href: 'tel:+966537311886', label: 'هاتف' },
   { icon: Mail, href: 'mailto:dr.al3rbi@gmail.com', label: 'بريد' },
   { icon: Linkedin, href: 'https://linkedin.com/in/moal3rbi', label: 'لينكدإن' },
+  { icon: Instagram, href: 'https://www.instagram.com/ecom_alarbi/', label: 'إنستجرام' },
+  { icon: TikTokIcon, href: 'https://www.tiktok.com/@ecom_alarbi', label: 'تيك توك' },
 ];
 
 export default function Footer() {
@@ -31,7 +48,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-gray-900 mb-1">
               محمد العربي
             </h3>
-            <p className="text-gray-500 text-sm">Digital Marketing Expert</p>
+            <p className="text-gray-500 text-sm">Digital Marketing & Creative Director</p>
           </div>
 
           {/* Navigation Links */}

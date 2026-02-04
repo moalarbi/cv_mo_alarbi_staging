@@ -9,9 +9,16 @@ const education = [
     badgeColor: 'bg-amber-100 text-amber-700',
   },
   {
-    degree: 'بكالوريوس إعلام',
+    degree: 'بكالوريوس التسويق الرقمي',
+    institution: 'Midocean University',
+    years: '2022 — 2026',
+    badge: 'قيد الدراسة',
+    badgeColor: 'bg-blue-100 text-blue-700',
+  },
+  {
+    degree: 'ليسانس آداب قسم إعلام',
     institution: 'جامعة طنطا، مصر',
-    years: '2016 — 2020',
+    years: '2015 — 2019',
   },
 ];
 
