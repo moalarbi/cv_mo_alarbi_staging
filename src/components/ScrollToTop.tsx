@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
 export default function ScrollToTop() {
@@ -6,8 +7,9 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 300);
+      setIsVisible(window.scrollY > 500);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -20,14 +22,21 @@ export default function ScrollToTop() {
   };
 
   return (
-    <button
-      onClick={scrollToTop}
-      className={`fixed bottom-6 left-6 z-50 p-3 rounded-full bg-gray-900 text-white shadow-lg hover:bg-gray-800 transition-all duration-300 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-      }`}
-      aria-label="العودة للأعلى"
-    >
-      <ArrowUp className="w-5 h-5" />
-    </button>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center transition-shadow hover:shadow-xl hover:shadow-blue-500/40"
+          aria-label="العودة للأعلى"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
