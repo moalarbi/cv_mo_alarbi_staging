@@ -1,34 +1,19 @@
-import { Phone, Mail, Linkedin, Heart, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Heart, Linkedin, Mail, Phone } from 'lucide-react';
 
-// Custom TikTok icon since lucide-react might not have it in this version
-const TikTokIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-  </svg>
-);
-
-const footerLinks = [
+const navLinks = [
   { href: '#hero', label: 'الرئيسية' },
   { href: '#experience', label: 'الخبرات' },
   { href: '#skills', label: 'المهارات' },
   { href: '#projects', label: 'المشاريع' },
+  { href: '#education', label: 'التعليم' },
   { href: '#contact', label: 'التواصل' },
 ];
 
 const socialLinks = [
-  { icon: Phone, href: 'tel:+966537311886', label: 'هاتف' },
-  { icon: Mail, href: 'mailto:dr.al3rbi@gmail.com', label: 'بريد' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/moal3rbi', label: 'لينكدإن' },
-  { icon: Instagram, href: 'https://www.instagram.com/ecom_alarbi/', label: 'إنستجرام' },
-  { icon: TikTokIcon, href: 'https://www.tiktok.com/@ecom_alarbi', label: 'تيك توك' },
+  { icon: Linkedin, href: 'https://linkedin.com/in/moal3rbi', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:dr.al3rbi@gmail.com', label: 'Email' },
+  { icon: Phone, href: 'tel:+966537311886', label: 'Phone' },
 ];
 
 export default function Footer() {
@@ -40,63 +25,168 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center text-center">
-          {/* Name & Title */}
-          <div className="mb-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
-              محمد العربي
-            </h3>
-            <p className="text-gray-500 text-sm">Digital Marketing & Creative Director</p>
-          </div>
+    <footer className="bg-gray-900 text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      </div>
 
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8">
-            {footerLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+      {/* Gradient Overlay */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Main Footer Content */}
+        <div className="py-10 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
+            {/* Brand */}
+            <div className="sm:col-span-2 lg:col-span-2">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
               >
-                {link.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-3 mb-8">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target={social.href.startsWith('http') ? '_blank' : undefined}
-                rel={
-                  social.href.startsWith('http')
-                    ? 'noopener noreferrer'
-                    : undefined
-                }
-                className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors"
-                aria-label={social.label}
+                <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                  <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl">م</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-base sm:text-lg lg:text-xl">محمد العربي</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Digital Marketing & Creative Director</p>
+                </div>
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-gray-400 leading-relaxed max-w-md mb-5 sm:mb-6 text-xs sm:text-sm"
               >
-                <social.icon className="w-5 h-5" />
-              </a>
-            ))}
+                قائد تسويق رقمي بخبرة +12 عام في بناء استراتيجيات نمو العلامات التجارية 
+                وتحقيق نتائج ملموسة في السوق السعودي.
+              </motion.p>
+
+              {/* Social Links */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="flex gap-2 sm:gap-3"
+              >
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    whileHover={{ scale: 1.1, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-lg sm:rounded-xl bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </motion.a>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <motion.h4
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="font-bold text-sm sm:text-base lg:text-lg mb-4 sm:mb-6"
+              >
+                روابط سريعة
+              </motion.h4>
+              <motion.ul
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="space-y-2 sm:space-y-3"
+              >
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <button
+                      onClick={() => handleNavClick(link.href)}
+                      className="text-gray-400 hover:text-blue-400 transition-colors flex items-center gap-2 group text-xs sm:text-sm"
+                    >
+                      <span className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors" />
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
+              </motion.ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <motion.h4
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="font-bold text-sm sm:text-base lg:text-lg mb-4 sm:mb-6"
+              >
+                تواصل معي
+              </motion.h4>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="space-y-3 sm:space-y-4"
+              >
+                <a
+                  href="mailto:dr.al3rbi@gmail.com"
+                  className="flex items-center gap-2 sm:gap-3 text-gray-400 hover:text-blue-400 transition-colors text-xs sm:text-sm"
+                >
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="truncate">dr.al3rbi@gmail.com</span>
+                </a>
+                <a
+                  href="tel:+966537311886"
+                  className="flex items-center gap-2 sm:gap-3 text-gray-400 hover:text-blue-400 transition-colors text-xs sm:text-sm"
+                >
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>+966 53 731 1886</span>
+                </a>
+                <div className="flex items-center gap-2 sm:gap-3 text-gray-400 text-xs sm:text-sm">
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>متاح للعمل</span>
+                </div>
+              </motion.div>
+            </div>
           </div>
+        </div>
 
-          {/* Divider */}
-          <div className="w-full max-w-xs h-px bg-gray-200 mb-6"></div>
-
-          {/* Copyright */}
-          <p className="text-gray-500 text-sm mb-2">
-            © 2025 محمد العربي. جميع الحقوق محفوظة
-          </p>
-
-          {/* Made with love */}
-          <p className="text-gray-400 text-sm flex items-center gap-1">
-            صنع بـ <Heart className="w-4 h-4 text-red-500 fill-red-500" /> في
-            الرياض
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-gray-500 text-[10px] sm:text-xs flex items-center gap-1"
+            >
+              © 2025 محمد العربي. جميع الحقوق محفوظة
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-gray-500 text-[10px] sm:text-xs flex items-center gap-1"
+            >
+              صنع بـ <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-rose-500 fill-rose-500" /> في الرياض
+            </motion.p>
+          </div>
         </div>
       </div>
     </footer>
